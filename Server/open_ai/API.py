@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = "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"
+openai.api_key = ""
 
 # Use OpenAI API to generate questions from the processed text
 def summarize_text(text):
