@@ -5,7 +5,11 @@ openai.api_key = "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"
 # Use OpenAI API to generate questions from the processed text
 def summarize_text(text):
     model_engine = "text-davinci-002"
-    prompt = f"Please summarize the following text:\n{text}\n\nSummary:"
+    prompt = f"Please summarize the following text in and find the main problem," \
+             f" :\n{text}\n\n" \
+             f"see if there is similarity to past summary of a problem" \
+             f" from the following summaries that matches and if there is, use it as the response :\n{text}\n\n/" \
+             f"Summary:"
     completions = openai.Completion.create(
         engine=model_engine,
         prompt=prompt,
