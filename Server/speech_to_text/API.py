@@ -4,7 +4,6 @@ from pydub import AudioSegment
 
 
 def parse_audio_to_text(audio_file_path):
-    # Initialize the recognizer
     r = sr.Recognizer()
 
     # Load the audio file
@@ -21,6 +20,7 @@ def parse_audio_to_text(audio_file_path):
         except sr.RequestError as e:
             return "Could not request results from Google Speech Recognition service; {0}".format(e)
 
+
 def convert_mp3_to_wav(mp3_file_path, wav_file_path):
     # Set the path to the ffmpeg executable
     ffmpeg_path = "path/to/ffmpeg/executable"  # Replace with the actual path
@@ -29,3 +29,4 @@ def convert_mp3_to_wav(mp3_file_path, wav_file_path):
     os.environ["PATH"] += os.pathsep + ffmpeg_path
     audio = AudioSegment.from_mp3(mp3_file_path)
     audio.export(wav_file_path, format='wav')
+
