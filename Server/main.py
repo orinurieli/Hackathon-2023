@@ -9,5 +9,5 @@ if __name__ == "__main__":
     data_base = rsc.database()
 
     text = stt_logic.parse_audio_to_txt("C:/Users/amirk/Downloads/test.wav")
-    gpt_summary = gpt_logic.generate_solution(data_base.data ,text)
-    print(data_base.data)
+    gpt_summary = gpt_logic.generate_solution(''.join(str(element) for element in data_base.data), text)
+    print(gpt_summary)
