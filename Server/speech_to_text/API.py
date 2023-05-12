@@ -4,16 +4,16 @@ from pydub import AudioSegment
 
 
 def parse_audio_to_text(audio_file_path):
-    r = sr.Recognizer()
+    txt_result = sr.Recognizer()
 
     # Load the audio file
     with sr.AudioFile(audio_file_path) as source:
         # Read the entire audio file
-        audio = r.record(source)
+        audio = txt_result.record(source)
 
         try:
             # Use the recognizer to convert speech to text
-            text = r.recognize_google(audio)
+            text = txt_result.recognize_google(audio)
             return text
         except sr.UnknownValueError:
             return "Speech recognition could not understand audio."
